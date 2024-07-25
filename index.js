@@ -148,6 +148,27 @@ function addRole() {
     });
 }
 
+function updateEmployeeRole() {
+    prompt([
+        {
+            type: 'input',
+            name: 'employee_id',
+            message: 'Enter employee ID:'
+        },
+        {
+            type: 'input',
+            name: 'role_id',
+            message: 'Enter new role ID:'
+        }
+    ]).then((answer) => {
+        pool.query('UPDATE Employee SET role_id = $1 WHERE id = $2', [answer.role_id, answer.employee_id], (err, res) => {
+            if (err) throw err;
+            console.log('Employee role updated!');
+            start();
+        });
+    });
+}
+
 
 
 start()
