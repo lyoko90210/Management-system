@@ -98,7 +98,7 @@ function addEmployee() {
             message: 'Enter employee manager ID:'
         }
     ]).then((answer) => {
-        pool.query('INSERT INTO Employee (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3, $4)', [answer.first_name, answer.last_name, answer.role_id, answer.manager_id], (err, res) => {
+        pool.query('INSERT INTO Employee (First_name, Last_name, role_id, Manager_id) VALUES ($1, $2, $3, $4)', [answer.first_name, answer.last_name, answer.role_id, answer.manager_id], (err, res) => {
             if (err) throw err;
             console.log('Employee added!');
             start();
