@@ -122,6 +122,31 @@ function addDepartment() {
     });
 }
 
+function addRole() {
+    prompt([
+        {
+            type: 'input',
+            name: 'title',
+            message: 'Enter role title:'
+        },
+        {
+            type: 'input',
+            name: 'salary',
+            message: 'Enter role salary:'
+        },
+        {
+            type: 'input',
+            name: 'department_id',
+            message: 'Enter role department ID:'
+        }
+    ]).then((answer) => {
+        pool.query('INSERT INTO Role (Title, Salary, Department_id) VALUES ($1, $2, $3)', [answer.title, answer.salary, answer.department_id], (err, res) => {
+            if (err) throw err;
+            console.log('Role added!');
+            start();
+        });
+    });
+}
 
 
 
