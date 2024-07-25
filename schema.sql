@@ -1,18 +1,16 @@
-DROP Database Department_db;
-CREATE DATABASE Department_db;
+
+CREATE DATABASE employee_db;
 
 
-\c Department_db;
-
-
+\c employee_db;
 
 CREATE TABLE Department (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    Name_ VARCHAR(30) NOT NULL
+    id SERIAL PRIMARY KEY ,
+    Name VARCHAR(30) NOT NULL
 );
   
 CREATE TABLE Role (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY ,
     Title VARCHAR(30) NOT NULL,
     Salary DECIMAL NOT NULL,
     department_id INTEGER NOT NULL,
@@ -20,7 +18,7 @@ CREATE TABLE Role (
 );
 
 CREATE TABLE Employee (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id  SERIAL PRIMARY KEY,
     First_name VARCHAR(30) NOT NULL,
     Last_name VARCHAR(30) NOT NULL,
     role_id INTEGER NOT NULL,
