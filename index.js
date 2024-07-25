@@ -106,5 +106,23 @@ function addEmployee() {
     });
 }
 
+function addDepartment() {
+    prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Enter department name:'
+        }
+    ]).then((answer) => {
+        pool.query('INSERT INTO Department (Name) VALUES ($1)', [answer.name], (err, res) => {
+            if (err) throw err;
+            console.log('Department added!');
+            start();
+        });
+    });
+}
+
+
+
 
 start()
